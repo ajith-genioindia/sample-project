@@ -19,7 +19,7 @@ jobs:
   # makes no commit.
   sync-doc:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
-    uses: YOUR_ORG/test-doc-generator/.github/workflows/reusable-test-doc.yml@main
+    uses: ajith-genioindia/test-doc-generator/.github/workflows/reusable-test-doc.yml@main
     with:
       owner: "カルティク"
       screen_label: "サンプルマスタ"
