@@ -1,0 +1,32 @@
+name: Test Documentation
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  # Runs on every push to a feature branch AND every PR merged into main.
+  # sync_test_doc.py figures out on its own which case it is: creates
+  # doc/単体テスト仕様書.xlsx if it doesn't exist yet, otherwise re-analyzes
+  # and — only if something actually changed — appends to a doc/YYYY-MM-DD/
+  # snapshot, never touching OK/NG marks or 確認日 a tester already filled
+  # in. Safe to leave enabled permanently; a run that finds nothing new
+  # makes no commit.
+  sync-doc:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    uses: YOUR_ORG/test-doc-generator/.github/workflows/reusable-test-doc.yml@main
+    with:
+      owner: "カルティク"
+      screen_label: "サンプルマスタ"
+      design_doc_prefix: "設計書[管理]ー71."
+      # doc_dir/doc_filename default to doc/単体テスト仕様書.xlsx — override if you want a
+      # different path/filename (e.g. doc_filename: 単体テスト仕様書_詳細版_サンプル.xlsx to
+      # match an existing file).
+      merged_branch: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || '' }}
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
