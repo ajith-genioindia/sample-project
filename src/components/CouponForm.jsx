@@ -3,6 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getCoupon } from "../api/couponApi";
 
 const EMPTY_FORM = {
+  code: "",
   name: "",
   startDate: "",
   endDate: "",
@@ -30,6 +31,7 @@ function CouponForm({ mode }) {
       getCoupon(id).then((coupon) => {
         if (coupon) {
           setForm({
+            code: coupon.code,
             name: coupon.name,
             startDate: coupon.startDate,
             endDate: coupon.endDate,
@@ -77,6 +79,10 @@ function CouponForm({ mode }) {
       <label>
         クーポンID
         <input value={mode === "edit" ? id : "自動採番"} disabled />
+      </label>
+      <label>
+        クーポンコード
+        <input value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value })} />
       </label>
       <label>
         クーポン名称
