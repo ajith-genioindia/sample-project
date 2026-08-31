@@ -118,6 +118,7 @@ function CouponList({ currentUser }) {
         <thead>
           <tr>
             <th onClick={handleSort}>クーポンID</th>
+            <th>クーポンコード</th>
             <th>クーポン名称</th>
             <th>期間</th>
             <th>種別</th>
@@ -129,6 +130,7 @@ function CouponList({ currentUser }) {
           {coupons.map((c) => (
             <tr key={c.id}>
               <td>{c.id}</td>
+              <td>{c.code}</td>
               <td><Link to={`/coupons/${c.id}`}>{c.name}</Link></td>
               <td>{c.startDate} 〜 {c.endDate}</td>
               <td>{c.type}</td>

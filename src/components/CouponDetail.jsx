@@ -21,6 +21,7 @@ function CouponDetail({ currentUser }) {
       <h1>リワードクーポンマスタ詳細</h1>
       <dl>
         <dt>クーポンID</dt><dd>{coupon.id}</dd>
+        <dt>クーポンコード</dt><dd>{coupon.code}</dd>
         <dt>クーポン名称</dt><dd>{coupon.name}</dd>
         <dt>期間（開始日）</dt><dd>{coupon.startDate}</dd>
         <dt>期間（終了日）</dt><dd>{coupon.endDate}</dd>
