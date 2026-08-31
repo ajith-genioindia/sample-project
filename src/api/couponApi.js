@@ -11,6 +11,7 @@ const SEED_COUPONS = [
   {
     id: "C0001",
     code: "SUMMER10",
+    offerCode: "OFR-SUMMER10",
     name: "サマーセール10%オフ",
     startDate: "2026-06-01",
     endDate: "2026-08-31",
@@ -21,6 +22,7 @@ const SEED_COUPONS = [
   {
     id: "C0002",
     code: "QRPOINT2X",
+    offerCode: "OFR-QRPOINT2X",
     name: "QR来店ポイント2倍",
     startDate: "2026-01-01",
     endDate: "2026-12-31",
@@ -31,6 +33,7 @@ const SEED_COUPONS = [
   {
     id: "C0003",
     code: "NEWMEMBER500",
+    offerCode: "OFR-NEWMEMBER500",
     name: "新規会員限定500円引き",
     startDate: "2026-09-01",
     endDate: "2026-09-30",
